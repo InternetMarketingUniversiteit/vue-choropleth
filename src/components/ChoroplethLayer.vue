@@ -22,7 +22,7 @@ function mouseover({ target }) {
 
   let geojsonItem = target.feature.properties
   let item = this.geojsonData.data.find(
-    x => x[this.idKey] === Number(geojsonItem[this.geojsonIdKey])
+    x => x[this.idKey] === geojsonItem[this.geojsonIdKey]
   )
   let tempItem = { name: item[this.titleKey], value: item[this.value.key] }
   if (this.extraValues) {
