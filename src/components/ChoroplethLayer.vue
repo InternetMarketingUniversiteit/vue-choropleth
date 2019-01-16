@@ -24,7 +24,12 @@ function mouseover({ target }) {
   let item = this.geojsonData.data.find(
     x => x[this.idKey] === geojsonItem[this.geojsonIdKey]
   )
-  let tempItem = { name: item[this.titleKey], value: item[this.value.key] }
+  let tempItem;
+  if(item === undefined) {
+     tempItem = { name: geojsonItem[this.geojsonCountryName] || '', value: 0 }
+  } else {
+     tempItem = { name: item[this.titleKey], value: item[this.value.key] }
+  }
   if (this.extraValues) {
     let tempValues = []
     for (let x of this.extraValues) {
@@ -58,6 +63,7 @@ export default {
     value: Object,
     extraValues: Array,
     geojsonIdKey: String,
+    geojsonCountryName: String,
     mapStyle: Object,
     zoom: Number,
     mapOptions: Object,
