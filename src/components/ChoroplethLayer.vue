@@ -79,6 +79,7 @@ export default {
           let itemGeoJSONID = feature.properties[this.geojsonIdKey]
           let color = "NONE"
           const {data} = this.geojsonData
+
           let item = data.find(x => x[this.idKey] === itemGeoJSONID)
           if (!item) {
             return {
